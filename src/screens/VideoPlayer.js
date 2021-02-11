@@ -4,7 +4,7 @@ import Constant from 'expo-constants'
 import { WebView } from 'react-native-webview';
 
 const VideoPlayer = ({route})=>{
-    const {videoId,title} = route.params
+    const {videoId,title,description} = route.params
    return(
        <View style={{
            flex:1,
@@ -33,7 +33,7 @@ const VideoPlayer = ({route})=>{
            </Text>
            <Text style={{
                fontSize:10,
-               width:Dimensions.get("screen").width - 50,
+               width:Dimensions.get("screen").width - 20,
                margin:8
            }}
            numberOfLines={7}

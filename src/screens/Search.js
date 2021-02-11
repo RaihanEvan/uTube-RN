@@ -62,7 +62,7 @@ const Search = ({ navigation }) => {
                     onPress={() => fetchData()}
                 />
             </View>
-            {loading ? <ActivityIndicator style={{ marginTop: 10 }} size="large" color="red" /> : null}
+            {loading ? <ActivityIndicator style={{ marginTop: 10 }} size="large" color="blue" /> : null}
             <FlatList
                 data={miniCardData}
                 renderItem={({ item }) => {

@@ -7,6 +7,11 @@ const LibraryScreen = ()=>{
    return(
        <View style={{flex:1}}>
            <Header />
+           <Text style={{
+               margin:80,
+               fontSize:22,
+               borderBottomWidth:1
+           }}>Recently Viewed</Text>
            
        </View>
    )

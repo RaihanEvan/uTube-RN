@@ -11,10 +11,10 @@ export default function Header({ height }) {
   const navigation = useNavigation()
   const dispatch = useDispatch()
   const { colors } = useTheme()
-  const currentTheme = useSelector(state => {
+  // const currentTheme = useSelector(state => {
 
-    return state.myDarMode
-  })
+  //   return state.myDarMode
+  // })
   const mycolor = colors.iconColor
   return (
     <View style={{
@@ -53,6 +53,7 @@ export default function Header({ height }) {
         width: 150,
         margin: 5
       }}>
+        <MaterialIcons name="keyboard-voice" size={32} color={mycolor} />
         <Ionicons name="md-videocam" size={32} color={mycolor} />
         <Ionicons name="md-search" size={32} color={mycolor}
           onPress={() => navigation.navigate("search")}
@@ -60,7 +61,7 @@ export default function Header({ height }) {
         />
         <MaterialIcons name="account-circle" size={32} color={mycolor}
 
-        //onPress={()=>dispatch({type:"change_theme",payload:!currentTheme})}
+        onPress={()=>navigation.navigate("login")}
         />
       </View>
     </View>

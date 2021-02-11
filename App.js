@@ -15,19 +15,20 @@ import {reducer} from './src/reducers/reducer'
 import {themeReducer} from './src/reducers/themeReducer'
 import {Provider,useSelector} from 'react-redux'
 import {createStore,combineReducers} from 'redux'
+import LoginScreen from './src/screens/LoginScreen';
 //import {SafeAreaView} from 'react-native-safe-area-context';
 
 
 
-const customDarkTheme={
-  ...DarkTheme,
-  colors:{
-    ...DarkTheme.colors,
-    headerColor:"#404040",
-    iconColor:"white",
-    tabIcon:"white"
-  }
-}
+// const customDarkTheme={
+//   ...DarkTheme,
+//   colors:{
+//     ...DarkTheme.colors,
+//     headerColor:"#404040",
+//     iconColor:"white",
+//     tabIcon:"white"
+//   }
+// }
 
 const customDefaultTheme={
   ...DefaultTheme,
@@ -40,8 +41,7 @@ const customDefaultTheme={
 }
 
 const rooReducer = combineReducers({
-  cardData:reducer, //[],
-  myDarMode:themeReducer//false
+  cardData:reducer
 })
 const store = createStore(rooReducer)
 
@@ -57,13 +57,13 @@ const RootHome = ()=>{
       tabBarIcon: ({ color }) => {
         let iconName;
 
-        if (route.name === 'home') {
+        if (route.name === 'Home') {
           iconName = 'home';
-        } else if (route.name === 'explore') {
+        } else if (route.name === 'Explore') {
           iconName = 'explore';
-        }else if(route.name === 'suscribe'){
+        }else if(route.name === 'Subscribe'){
           iconName = 'subscriptions'
-        }else if(route.name === 'library'){
+        }else if(route.name === 'Library'){
           iconName = 'video-library'
         }
         return <MaterialIcons name={iconName} size={30} color={color} />;
@@ -74,10 +74,10 @@ const RootHome = ()=>{
       inactiveTintColor: 'gray',
     }}
     >
-      <Tabs.Screen name="home" component={HomeScreen} />
-      <Tabs.Screen name="explore" component={ExploreScreen} />
-      <Tabs.Screen name="subscribe" component={SubScreen} />
-      <Tabs.Screen name="library" component={LibraryScreen} />
+      <Tabs.Screen name="Home" component={HomeScreen} />
+      <Tabs.Screen name="Explore" component={ExploreScreen} />
+      <Tabs.Screen name="Subscribe" component={SubScreen} />
+      <Tabs.Screen name="Library" component={LibraryScreen} />
     </Tabs.Navigator>
   )
 }
@@ -93,16 +93,14 @@ const App = ()=>{
 
 export function Navigation() {
 
-  let currentTheme = useSelector(state=>{
-    return state.myDarMode
-  })
   return (
  
-      <NavigationContainer theme={currentTheme?customDarkTheme:customDefaultTheme}>
+      <NavigationContainer theme={customDefaultTheme}>
         <Stack.Navigator headerMode="none">
           <Stack.Screen name="rootHome" component={RootHome} />
           <Stack.Screen name="search" component={Search} />
           <Stack.Screen name="videoplayer" component={VideoPlayer} />
+          <Stack.Screen name="login" component={LoginScreen} />
         </Stack.Navigator>
       </NavigationContainer>
    

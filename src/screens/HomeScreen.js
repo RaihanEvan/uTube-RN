@@ -5,19 +5,20 @@ import Card from '../components/Card'
 import { useSelector } from 'react-redux'
 
 
-export default function HomeScreen({ navigation }) {
-  const scrollY = new Animated.Value(0)
-  const diffClamp = Animated.diffClamp(scrollY, 0, 45)
-  const translateY = diffClamp.interpolate({
-    inputRange: [0, 45],
-    outputRange: [0, -45]
-  })
+const HomeScreen = ()=> {
+  // const scrollY = new Animated.Value(0)
+  // const diffClamp = Animated.diffClamp(scrollY, 0, 45)
+  // const translateY = diffClamp.interpolate({
+  //   inputRange: [0, 45],
+  //   outputRange: [0, -45]
+  // })
   const cardData = useSelector(state => {
     return state.cardData
   })
   return (
     <View style={{ flex: 1 }}>
-      <Animated.View
+      <Header />
+      {/* <Animated.View
         style={{
           transform: [
             { translateY: translateY }
@@ -25,8 +26,7 @@ export default function HomeScreen({ navigation }) {
           elevation: 4,
           zIndex: 100
         }}>
-        <Header />
-      </Animated.View>
+      </Animated.View> */}
       <FlatList
         data={cardData}
         renderItem={({ item }) => {
@@ -38,13 +38,12 @@ export default function HomeScreen({ navigation }) {
         }}
 
         keyExtractor={item => item.id.videoId}
-        onScroll={(e) => {
-          scrollY.setValue(e.nativeEvent.contentOffset.y)
-        }}
+        // onScroll={(e) => {
+        //   scrollY.setValue(e.nativeEvent.contentOffset.y)
+        // }}
       />
-
-
-
     </View>
   );
 }
+
+export default  HomeScreen
