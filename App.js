@@ -16,7 +16,9 @@ import {themeReducer} from './src/reducers/themeReducer'
 import {Provider,useSelector} from 'react-redux'
 import {createStore,combineReducers} from 'redux'
 import LoginScreen from './src/screens/LoginScreen';
+import SignupScreen from './src/screens/SignupScreen';
 //import {SafeAreaView} from 'react-native-safe-area-context';
+//import Providers from './src/navigation/AuthProvider.android';
 
 
 
@@ -84,9 +86,11 @@ const RootHome = ()=>{
 
 const App = ()=>{
   return(
+    <React.Fragment>
      <Provider store={store}>
       <Navigation />
     </Provider>
+    </React.Fragment>
   )
  
 }
@@ -101,6 +105,7 @@ export function Navigation() {
           <Stack.Screen name="search" component={Search} />
           <Stack.Screen name="videoplayer" component={VideoPlayer} />
           <Stack.Screen name="login" component={LoginScreen} />
+          <Stack.Screen name="signup" component={SignupScreen} />
         </Stack.Navigator>
       </NavigationContainer>
    

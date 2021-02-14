@@ -16,7 +16,7 @@ const ExploreScreen = ()=>{
                flexDirection:"row",
                flexWrap:"wrap",
                justifyContent:"space-around",
-               marginTop:75
+               marginTop:10
            }}>
                 <LittleCard name="Music"/>
                 <LittleCard name="Kids"/>

@@ -6,27 +6,17 @@ import { useSelector } from 'react-redux'
 
 
 const HomeScreen = ()=> {
-  // const scrollY = new Animated.Value(0)
-  // const diffClamp = Animated.diffClamp(scrollY, 0, 45)
-  // const translateY = diffClamp.interpolate({
-  //   inputRange: [0, 45],
-  //   outputRange: [0, -45]
-  // })
   const cardData = useSelector(state => {
     return state.cardData
   })
   return (
     <View style={{ flex: 1 }}>
       <Header />
-      {/* <Animated.View
-        style={{
-          transform: [
-            { translateY: translateY }
-          ],
-          elevation: 4,
-          zIndex: 100
-        }}>
-      </Animated.View> */}
+      <Text style={{
+               margin:10,
+               fontSize:18,
+               borderBottomWidth:1
+           }}>Recommended Videos</Text>
       <FlatList
         data={cardData}
         renderItem={({ item }) => {
@@ -38,9 +28,6 @@ const HomeScreen = ()=> {
         }}
 
         keyExtractor={item => item.id.videoId}
-        // onScroll={(e) => {
-        //   scrollY.setValue(e.nativeEvent.contentOffset.y)
-        // }}
       />
     </View>
   );

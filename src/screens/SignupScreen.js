@@ -5,18 +5,23 @@ import { StyleSheet, Text, View,Image,
   TouchableOpacity } from 'react-native';
 //import Header from '../components/Header'
 import { StatusBar } from "expo-status-bar";
-import { useNavigation, useTheme } from '@react-navigation/native';
 //import React, { useState } from "react";
 
 
-const LoginScreen = ()=>{
-  const navigation = useNavigation()
+const SignupScreen = ()=>{
    return(
     <View style={styles.container}>
     <Image style={styles.image} source={require("../../assets/icon.png")} />
-    <Text style={{marginBottom:20}}>Logging In For uTube!</Text>
+    <Text style={{marginBottom:20}}>Signning Up For uTube!</Text>
 
     <StatusBar style="auto" />
+    <View style={styles.inputView}>
+      <TextInput
+        style={styles.TextInput}
+        placeholder="Full Name"
+        placeholderTextColor="white"
+      />
+    </View>
     <View style={styles.inputView}>
       <TextInput
         style={styles.TextInput}
@@ -35,17 +40,18 @@ const LoginScreen = ()=>{
         //onChangeText={(password) => setPassword(password)}
       />
     </View>
-
-    <TouchableOpacity>
-      <Text style={styles.forgot_button}>Forgot Password?</Text>
-    </TouchableOpacity>
-    <TouchableOpacity>
-      <Text style={styles.forgot_button} 
-     onPress={()=>{navigation.navigate("signup")}} >Don't have an account? Sign up!</Text>
-    </TouchableOpacity>
+    <View style={styles.inputView}>
+      <TextInput
+        style={styles.TextInput}
+        placeholder="Confirm Password"
+        placeholderTextColor="white"
+        secureTextEntry={true}
+        //onChangeText={(password) => setPassword(password)}
+      />
+    </View>
 
     <TouchableOpacity style={styles.loginBtn}>
-      <Text style={styles.loginText}>Login</Text>
+      <Text style={styles.loginText}>Sign Up</Text>
     </TouchableOpacity>
   </View>
 );
@@ -53,7 +59,7 @@ const LoginScreen = ()=>{
 
 
 
-export default LoginScreen
+export default SignupScreen
 
 const styles = StyleSheet.create({
   container: {

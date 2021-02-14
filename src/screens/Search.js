@@ -32,7 +32,7 @@ const Search = ({ navigation }) => {
     return (
         <View style={{
             flex: 1,
-            marginTop: Constant.statusBarHeight
+            marginTop:1
         }}>
             <View style={{
                 padding: 5,

@@ -8,7 +8,7 @@ const VideoPlayer = ({route})=>{
    return(
        <View style={{
            flex:1,
-        marginTop:Constant.statusBarHeight
+        marginTop:1
         }}>
            <View style={{
                width:"100%",

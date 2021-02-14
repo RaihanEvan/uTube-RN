@@ -18,17 +18,17 @@ export default function Header({ height }) {
   const mycolor = colors.iconColor
   return (
     <View style={{
-      marginTop: Constant.statusBarHeight,
-      position: "absolute",
+      marginTop: 1,
+      position: 'relative',
 
       top: 0,
       left: 0,
       right: 0,
-      height: 45,
+      height: 48,
       backgroundColor: colors.headerColor,
       flexDirection: "row",
       justifyContent: "space-between",
-      elevation: 4,
+      elevation: 5,
     }}>
       <View style={{
         flexDirection: "row",
